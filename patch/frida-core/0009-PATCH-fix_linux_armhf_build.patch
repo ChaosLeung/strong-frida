@@ -1,7 +1,7 @@
-From 162452cb2209a7e283735717300fb6c7e8b1489c Mon Sep 17 00:00:00 2001
-From: Your Name <you@example.com>
-Date: Fri, 21 May 2021 09:39:41 +0800
-Subject: [PATCH] fix_linux_armhf_build
+From dd173de02991f9de795a64cb2a1193b1772d7ee0 Mon Sep 17 00:00:00 2001
+From: Chaos <lgf42031@gmail.com>
+Date: Thu, 11 Nov 2021 11:44:17 +0800
+Subject: [PATCH 09/10] [PATCH] fix_linux_armhf_build
 
 ---
  tools/modulate.py | 2 +-

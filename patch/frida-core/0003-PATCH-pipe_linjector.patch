@@ -1,0 +1,34 @@
+From 7f87eef764a1b56ff76d65708bdacdffcb577172 Mon Sep 17 00:00:00 2001
+From: Chaos <lgf42031@gmail.com>
+Date: Thu, 11 Nov 2021 11:44:17 +0800
+Subject: [PATCH 03/10] [PATCH] pipe_linjector
+
+---
+ src/linux/frida-helper-backend-glue.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/linux/frida-helper-backend-glue.c b/src/linux/frida-helper-backend-glue.c
+index b99963a1..3ca14c6a 100644
+--- a/src/linux/frida-helper-backend-glue.c
++++ b/src/linux/frida-helper-backend-glue.c
+@@ -947,7 +947,7 @@ frida_inject_instance_init_fifo (FridaInjectInstance * self)
+ {
+   const int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
+ 
+-  self->fifo_path = g_strdup_printf ("%s/linjector-%u", self->temp_path, self->id);
++  self->fifo_path = g_strdup_printf ("%s/%p-%u", self->temp_path, self, self->id);
+ 
+   mkfifo (self->fifo_path, mode);
+   chmod (self->fifo_path, mode);
+@@ -2856,7 +2856,7 @@ frida_resolve_linker_address (pid_t pid, gpointer func)
+   gchar * linker_path;
+   GumAddress local_base, remote_base, remote_address;
+ 
+-  if (dladdr (func, &info) != 0) 
++  if (dladdr (func, &info) != 0)
+     local_base = GUM_ADDRESS (info.dli_fbase);
+   else
+     local_base = gum_android_get_linker_module_details ()->range->base_address;
+-- 
+2.31.1
+

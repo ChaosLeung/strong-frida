@@ -1,0 +1,29 @@
+From ded86db4e7b21b901b96ac1b479fbc7e439e2a13 Mon Sep 17 00:00:00 2001
+From: Chaos <lgf42031@gmail.com>
+Date: Thu, 11 Nov 2021 11:44:17 +0800
+Subject: [PATCH 07/10] [PATCH] thread_gmain
+
+---
+ src/anti-anti-frida.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/src/anti-anti-frida.py b/src/anti-anti-frida.py
+index 472c184e..da3c472c 100644
+--- a/src/anti-anti-frida.py
++++ b/src/anti-anti-frida.py
+@@ -25,4 +25,9 @@ if __name__ == "__main__":
+     # gum-js-loop thread
+     random_name = "".join(random.sample("abcdefghijklmn", 11))
+     print(f"[*] Patch `gum-js-loop` to `{random_name}`")
+-    os.system(f"sed -b -i s/gum-js-loop/{random_name}/g {input_file}")
+\ No newline at end of file
++    os.system(f"sed -b -i s/gum-js-loop/{random_name}/g {input_file}")
++
++    # gmain thread
++    random_name = "".join(random.sample("abcdefghijklmn", 5))
++    print(f"[*] Patch `gmain` to `{random_name}`")
++    os.system(f"sed -b -i s/gmain/{random_name}/g {input_file}")
+\ No newline at end of file
+-- 
+2.31.1
+

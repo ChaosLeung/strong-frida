@@ -1,17 +1,17 @@
-From 07aa34f24a98527ec1174ff08ca46a0f9fbbe1b5 Mon Sep 17 00:00:00 2001
-From: hluwa <hluwa888@gmail.com>
-Date: Sat, 19 Dec 2020 01:12:14 +0800
-Subject: [PATCH 4/8] io_frida_agent_so
+From 3302167f346c18fbbe16ecbccf3c39ea2c42c0ae Mon Sep 17 00:00:00 2001
+From: Chaos <lgf42031@gmail.com>
+Date: Thu, 11 Nov 2021 11:44:17 +0800
+Subject: [PATCH 04/10] [PATCH] io_frida_agent_so
 
 ---
  src/linux/linux-host-session.vala | 7 ++++---
  1 file changed, 4 insertions(+), 3 deletions(-)
 
 diff --git a/src/linux/linux-host-session.vala b/src/linux/linux-host-session.vala
-index 40964ce5..2878c558 100644
+index 301799ed..059e75a9 100644
 --- a/src/linux/linux-host-session.vala
 +++ b/src/linux/linux-host-session.vala
-@@ -118,12 +118,13 @@ namespace Frida {
+@@ -128,12 +128,13 @@ namespace Frida {
  			var blob64 = Frida.Data.Agent.get_frida_agent_64_so_blob ();
  			var emulated_arm = Frida.Data.Agent.get_frida_agent_arm_so_blob ();
  			var emulated_arm64 = Frida.Data.Agent.get_frida_agent_arm64_so_blob ();
@@ -29,5 +29,5 @@ index 40964ce5..2878c558 100644
  				AgentMode.INSTANCED,
  				tempdir);
 -- 
-2.28.0
+2.31.1
 
