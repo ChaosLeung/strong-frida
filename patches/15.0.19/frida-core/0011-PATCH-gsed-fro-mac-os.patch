@@ -1,0 +1,38 @@
+From ba775cf7dc7a0bff75456d63e3b74b54a110c503 Mon Sep 17 00:00:00 2001
+From: Chaos <lgf42031@gmail.com>
+Date: Thu, 11 Nov 2021 13:20:40 +0800
+Subject: [PATCH 11/11] [PATCH] gsed fro mac os
+
+---
+ src/anti-anti-frida.py | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/src/anti-anti-frida.py b/src/anti-anti-frida.py
+index da3c472c..b20a3353 100644
+--- a/src/anti-anti-frida.py
++++ b/src/anti-anti-frida.py
+@@ -22,12 +22,17 @@ if __name__ == "__main__":
+ 
+     binary.write(input_file)
+ 
++    if sys.platform == "darwin":
++        sed = "gsed"
++    else:
++        sed = "sed"
++
+     # gum-js-loop thread
+     random_name = "".join(random.sample("abcdefghijklmn", 11))
+     print(f"[*] Patch `gum-js-loop` to `{random_name}`")
+-    os.system(f"sed -b -i s/gum-js-loop/{random_name}/g {input_file}")
++    os.system(f"{sed} -b -i s/gum-js-loop/{random_name}/g {input_file}")
+ 
+     # gmain thread
+     random_name = "".join(random.sample("abcdefghijklmn", 5))
+     print(f"[*] Patch `gmain` to `{random_name}`")
+-    os.system(f"sed -b -i s/gmain/{random_name}/g {input_file}")
+\ No newline at end of file
++    os.system(f"{sed} -b -i s/gmain/{random_name}/g {input_file}")
+\ No newline at end of file
+-- 
+2.31.1
+

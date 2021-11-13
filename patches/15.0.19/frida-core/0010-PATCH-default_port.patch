@@ -1,0 +1,23 @@
+From eceb48184173ccf609f5e3d99660c96278b62a17 Mon Sep 17 00:00:00 2001
+From: Chaos <lgf42031@gmail.com>
+Date: Thu, 11 Nov 2021 11:44:17 +0800
+Subject: [PATCH 10/11] [PATCH] default_port
+
+---
+ lib/base/socket.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/base/socket.vala b/lib/base/socket.vala
+index 0010553d..db87a5db 100644
+--- a/lib/base/socket.vala
++++ b/lib/base/socket.vala
+@@ -1,5 +1,5 @@
+ namespace Frida {
+-	public const uint16 DEFAULT_CONTROL_PORT = 27042;
++	public const uint16 DEFAULT_CONTROL_PORT = 12345;
+ 	public const uint16 DEFAULT_CLUSTER_PORT = 27052;
+ 
+ 	public SocketConnectable parse_control_address (string? address, uint16 port = 0) throws Error {
+-- 
+2.31.1
+
